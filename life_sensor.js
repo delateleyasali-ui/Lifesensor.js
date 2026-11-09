@@ -9,28 +9,22 @@ elements.life_sensor = {
         range: 3
     },
 
-    click: function(pixel) {
-        if (!pixel.range) {
-            pixel.range = 3;
-        }
+   onClicked: function(pixel) {
+    var ranges = [1, 3, 5, 8];
+    var current = Number(pixel.range) || 3;
+    var index = ranges.indexOf(current);
 
-        if (pixel.range === 1) {
-            pixel.range = 3;
-            pixel.color = "#00ffcc";
+    pixel.range = ranges[(index + 1) % ranges.length];
 
-        } else if (pixel.range === 3) {
-            pixel.range = 5;
-            pixel.color = "#0088ff";
+    var colors = {
+        1: "#00ff99",
+        3: "#00ffcc",
+        5: "#0088ff",
+        8: "#9900ff"
+    };
 
-        } else if (pixel.range === 5) {
-            pixel.range = 8;
-            pixel.color = "#9900ff";
-
-        } else {
-            pixel.range = 1;
-            pixel.color = "#00ff99";
-        }
-    },
+    pixel.color = colors[pixel.range];
+},
 
   tick: function(pixel) {
     var range = Number(pixel.range) || 3;
