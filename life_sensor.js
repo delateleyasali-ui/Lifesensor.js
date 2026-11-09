@@ -1,14 +1,9 @@
 elements.life_sensor = {
     color: "#00ffcc",
 
-    behavior: [
-        "XX|CH|XX",
-        "CH|XX|CH",
-        "XX|CH|XX"
-    ],
-
     category: "sensors",
     state: "solid",
+    movable: false,
 
     properties: {
         range: 3
