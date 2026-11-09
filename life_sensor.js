@@ -64,8 +64,27 @@ elements.life_sensor = {
         if (detected) break;
     }
 
-    if (detected) {
-        pixel.color = "#ff3333";
+  if (detected) {
+    pixel.color = "#ff3333";
+
+    var neighbors = [
+        [pixel.x, pixel.y - 1],
+        [pixel.x, pixel.y + 1],
+        [pixel.x - 1, pixel.y],
+        [pixel.x + 1, pixel.y]
+    ];
+
+    for (var i = 0; i < neighbors.length; i++) {
+        var wire = getPixel(neighbors[i][0], neighbors[i][1]);
+
+        if (wire && wire.element === "wire") {
+            if (typeof chargePixel === "function") {
+                chargePixel(wire, 1);
+            } else {
+                wire.charge = 1;
+            }
+        }
+    }
     } else {
         var colors = {
             1: "#00ff99",
