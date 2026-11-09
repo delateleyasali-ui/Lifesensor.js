@@ -9,8 +9,8 @@ elements.life_sensor = {
         range: 3
     },
 
-   onClicked: function(pixel) {
-    var ranges = [1, 3, 5, 8];
+ onClicked: function(pixel) {
+    var ranges = [1, 3, 10, 45];
     var current = Number(pixel.range) || 3;
     var index = ranges.indexOf(current);
 
@@ -19,8 +19,8 @@ elements.life_sensor = {
     var colors = {
         1: "#00ff99",
         3: "#00ffcc",
-        5: "#0088ff",
-        8: "#9900ff"
+        10: "#0088ff",
+        45: "#9900ff"
     };
 
     pixel.color = colors[pixel.range];
@@ -86,13 +86,12 @@ elements.life_sensor = {
         }
     }
     } else {
-        var colors = {
-            1: "#00ff99",
-            3: "#00ffcc",
-            5: "#0088ff",
-            8: "#9900ff"
-        };
-
+       var colors = {
+    1: "#00ff99",
+    3: "#00ffcc",
+    10: "#0088ff",
+    45: "#9900ff"
+};
         pixel.color = colors[range] || "#00ffcc";
     }
 },
