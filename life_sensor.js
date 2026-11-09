@@ -50,12 +50,19 @@ elements.life_sensor = {
 
             var name = String(target.element).toLowerCase();
 
-            if (
-                name === "bee" ||
-                name === "ant" ||
-                name === "fly" ||
-                name === "human"
-            ) {
+          if (
+    name === "bee" ||
+    name === "ant" ||
+    name === "fly" ||
+    name === "human" ||
+    name === "head" ||
+    name === "body" ||
+    name === "bird" ||
+    name === "rat" ||
+    name === "frog" ||
+    name === "spider" ||
+    name === "flea"
+) {
                 detected = true;
                 break;
             }
